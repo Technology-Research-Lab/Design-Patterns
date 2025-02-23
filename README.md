@@ -1,12 +1,12 @@
 ## Head First Design Patterns Study
 스터디원들과 함께 Head First Design Patterns 책을 읽고, 디자인 패턴을 배우고, 실제 코드에 적용해보는 스터디입니다.
-
+<br/><br/>
 
 ### 🗓️ 스터디 일정 및 규칙
 정기 모임: 주 1회, 매주 일요일 저녁 8시
 
 스터디 자료: 각자 본인 폴더에 작성 (GitHub Organization Repository 활용)
-
+<br/><br/>
 
 
 ### 스터디 방식:
