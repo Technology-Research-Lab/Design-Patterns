@@ -263,3 +263,6 @@ gradle-app.setting
 .env
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,intellij,java
+
+# application.properties 파일 무시
+application.properties
