@@ -5,9 +5,14 @@ import java.util.Scanner;
 public class Road {
     public static void main(String[] args) {
         CarSensor sensor = new CarSensor();
+
+        DomCarBreak carBreak = new DomCarBreak();
+        DomCarSound carSound = new DomCarSound();
         DomCar domCar = new DomCar();
 
         sensor.addObserver(domCar);
+        sensor.addObserver(carSound);
+        sensor.addObserver(carBreak);
 
         Scanner sc = new Scanner(System.in);
 
