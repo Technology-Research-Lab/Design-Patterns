@@ -1,4 +1,4 @@
-package spring.designpatterns.dom.entity;
+package spring.designpatterns.dom.Decorator.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

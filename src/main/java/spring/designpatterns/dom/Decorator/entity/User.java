@@ -1,4 +1,4 @@
-package spring.designpatterns.dom.entity;
+package spring.designpatterns.dom.Decorator.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -9,7 +9,7 @@ import lombok.Data;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userId;
     private String loginId;
     private String userName;
     private String password;
