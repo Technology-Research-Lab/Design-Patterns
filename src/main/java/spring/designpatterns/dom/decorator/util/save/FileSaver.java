@@ -69,6 +69,6 @@ public class FileSaver {
 
     public String getFilePath(){
         String uuid = UUID.randomUUID().toString();
-        return FILE_DIR + uuid;
+        return FILE_DIR + uuid +".txt";
     }
 }
