@@ -29,7 +29,6 @@ public class CarSensor implements DomSubject{
         this.distance = distance;
         measurementsChanged();
     }
-
     @Override
     public void notifyObservers() {
         for (DomObserver observer : observers) {
