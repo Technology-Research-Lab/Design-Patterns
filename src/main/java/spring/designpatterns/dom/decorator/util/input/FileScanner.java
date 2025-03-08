@@ -1,4 +1,4 @@
-package spring.designpatterns.dom.Decorator.util.input;
+package spring.designpatterns.dom.decorator.util.input;
 
 import java.util.Scanner;
 
