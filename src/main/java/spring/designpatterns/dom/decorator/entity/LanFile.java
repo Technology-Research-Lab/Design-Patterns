@@ -14,12 +14,11 @@ public class LanFile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long fileId;
     private String fileName;
-    @Enumerated(EnumType.STRING)
-    private Language languageType;
+    private String languageType;
     private String filePath;
 
     @Builder
-    public LanFile(String fileName, String filePath, Language language) {
+    public LanFile(String fileName, String filePath, String language) {
         this.fileName = fileName;
         this.filePath = filePath;
         this.languageType = language;
