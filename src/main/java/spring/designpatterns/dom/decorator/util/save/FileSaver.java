@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 import spring.designpatterns.dom.decorator.entity.LanFile;
-import spring.designpatterns.dom.decorator.entity.Language;
 import spring.designpatterns.dom.decorator.entity.User;
 import spring.designpatterns.dom.decorator.entity.User_File;
 import spring.designpatterns.dom.decorator.repository.LanFileRepository;
@@ -17,7 +16,7 @@ import java.util.UUID;
 
 /**
  * 이름: 파일 저장자
- * 내용: 유저, 파일 등의 정보들을 취합하여, 실제 파일을 생성합니다.
+ * 역할: 유저, 파일 등의 정보들을 취합하여, 실제 파일을 생성합니다.
  *      또한 DB에 관련 정보들을 영구 저장하여, 다시 읽어 올 수 있습니다.
  */
 
@@ -50,6 +49,7 @@ public class FileSaver {
             e.printStackTrace();
         }
     }
+
     public void makeFile(String filePath, String content) throws IOException {
         BufferedWriter fileWriter = new BufferedWriter(new FileWriter(filePath, true));
         fileWriter.write(content);
@@ -58,9 +58,11 @@ public class FileSaver {
         fileWriter.close();
     }
 
-    public Language getLanguage(int languageType) {
+    public String getLanguage(int languageType) {
         if (languageType == 1) {
-            return Language.ALIEN;
+            return "ALIEN";
+        } else if (languageType == 2) {
+            return "KOREAN";
         } else {
             log.error("죄송합니다. 아직 미구현인 단계입니다. \n 1번만 고를 수 있습니다. \n 1번을 골라주세요.");
             throw new RuntimeException();

@@ -1,20 +1,19 @@
-package spring.designpatterns.dom.decorator.util;
+package spring.designpatterns.dom.decorator.util.save;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 import spring.designpatterns.dom.decorator.entity.LanFile;
-import spring.designpatterns.dom.decorator.entity.Language;
 import spring.designpatterns.dom.decorator.entity.User;
 import spring.designpatterns.dom.decorator.entity.User_File;
 import spring.designpatterns.dom.decorator.repository.LanFileRepository;
 import spring.designpatterns.dom.decorator.repository.UserFileRepository;
 import spring.designpatterns.dom.decorator.repository.UserRepository;
-import spring.designpatterns.dom.decorator.util.save.FileSaver;
 
 @SpringBootTest
 @Transactional
@@ -29,13 +28,14 @@ public class FileSaverTest {
     private UserFileRepository userFileRepository;
 
     @Test
+    @DisplayName("파일로 저장 테스트")
     public void testSave() {
         //given
         FileSaver fileSaver = new FileSaver(lanFileRepository, userRepository, userFileRepository);
         User user = userRepository.findById(1L).get();
 
         //when
-        fileSaver.saveFile(user.getLoginId(), "Test_file_name", "Test. content, ddasdf", 1);
+        fileSaver.saveFile(user.getLoginId(), "Test_file_name", "안녕하세요 테스트 ㅎㅇ", 1);
         User_File userFile = userFileRepository.findById(1L).get();
 
         LanFile foundFile = lanFileRepository.findById(userFile.getFileId()).get();
@@ -47,7 +47,7 @@ public class FileSaverTest {
         Assertions.assertEquals(userFile.getUserId(), 1);
 
         Assertions.assertEquals(foundFile.getFileName(), "Test_file_name");
-        Assertions.assertEquals(foundFile.getLanguageType(), Language.ALIEN);
+        Assertions.assertEquals(foundFile.getLanguageType(), "ALIEN");
 
         Assertions.assertEquals(foundUser.getLoginId(), "test_id");
         Assertions.assertEquals(foundUser.getUserName(), "test_name");
@@ -71,7 +71,7 @@ public class FileSaverTest {
         return LanFile.builder()
                 .fileName("test_file")
                 .filePath("src/main/resources/files")
-                .language(Language.ALIEN).build();
+                .language("ALIEN").build();
     }
 
     public User_File makeUserFile(User user, LanFile file){
