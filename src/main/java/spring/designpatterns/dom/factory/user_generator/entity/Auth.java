@@ -5,14 +5,14 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Entity
-@Table(name = "role_factory")
-public class Role {
+@Table(name = "auth_factory")
+public class Auth {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String role;
+    private String auth;
 
-    public Role(String role) {
-        this.role = role;
+    public Auth(String auth) {
+        this.auth = auth;
     }
 }

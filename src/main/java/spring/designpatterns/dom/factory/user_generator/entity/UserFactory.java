@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "user_factory")
-public class User {
+public class UserFactory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,4 +16,13 @@ public class User {
     private String phone;
     private String address;
     private String role;
+    private String auth;
+
+    public UserFactory(String username, String password, String role, String auth) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.auth = auth;
+    }
+
 }
